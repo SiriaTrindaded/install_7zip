@@ -1,11 +1,16 @@
 ---
 - name: Instalar 7-Zip no Windows
-  hosts: 192.168.26.157  # Substitua pelo IP correto
+  hosts: windows
   gather_facts: no
   collections:
     - ansible.windows
 
   tasks:
+    - name: Criar o diretório C:\Temp se não existir
+      ansible.windows.win_file:
+        path: "C:\\Temp"
+        state: directory
+
     - name: Baixar o instalador do 7-Zip
       ansible.windows.win_get_url:
         url: "https://www.7-zip.org/a/7z2107-x64.exe"
