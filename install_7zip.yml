@@ -1,6 +1,6 @@
 ---
 - name: Instalar 7-Zip no Windows
-  hosts: windows
+  hosts: 192.168.26.157
   gather_facts: no
   collections:
     - ansible.windows
