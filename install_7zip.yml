@@ -1,6 +1,6 @@
 ---
 - name: Instalar 7-Zip no Windows
-  hosts: windows
+  hosts: 192.168.26.157  # Substitua pelo IP correto
   gather_facts: no
   collections:
     - ansible.windows
@@ -16,13 +16,4 @@
         path: "C:\\Temp\\7z2107-x64.exe"
         arguments: "/S"
         state: present
-
-    - name: Verificar se o 7-Zip foi instalado
-      ansible.windows.win_command: "C:\\Program Files\\7-Zip\\7z.exe"
-      register: result
-      ignore_errors: yes
-
-    - name: Exibir o resultado da instalação
-      debug:
-        var: result.stdout
 
